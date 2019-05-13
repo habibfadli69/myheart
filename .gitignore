@@ -1,0 +1,30 @@
+/mongo-db/mongo-data/
+/frontend/coreui/.DS_Store
+/frontend/coreui/node_modules
+/frontend/coreui/package-lock.json
+/frontend/coreui/dist
+/frontend/coreui/coverage
+
+/frontend/coreui/tests/e2e/reports/
+/frontend/coreui/selenium-debug.log
+
+# local env files
+/frontend/coreui/.env.local
+/frontend/coreui/.env.*.local
+
+# Log files
+/frontend/coreui/npm-debug.log*
+/frontend/coreui/yarn-debug.log*
+/frontend/coreui/yarn-error.log*
+
+# Editor directories and files
+/frontend/coreui/.idea
+/frontend/coreui/.vscode
+/frontend/coreui/*.suo
+/frontend/coreui/*.ntvs*
+/frontend/coreui/*.njsproj
+/frontend/coreui/*.sln
+/frontend/coreui/*.sw*
+
+/auth/node_modules/
+/sensor_server/node_modules/

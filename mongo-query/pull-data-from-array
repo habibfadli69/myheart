@@ -1,0 +1,1 @@
+db.sapis.update({_id:ObjectId("5c24e8ca4c7cde0016387815")},{$pull:{'perangkat.data':{kondisi:0}}});
