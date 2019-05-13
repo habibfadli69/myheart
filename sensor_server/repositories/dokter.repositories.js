@@ -1,16 +1,19 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
 var config = require('../config/database');
-require('../config/passport')(passport);
-var jwt = require('jsonwebtoken');
 var Dokter = require("../models/dokter.model");
 
 const dokterRepositories = {
-    getDokterByIdUser: async(params) => {
-        let result = await Dokter.findOne({
-            idUser:params
-        });
-        return result;
+    createDokter: async(nama,alamat,noTelp)=>{
+        var newDokters =new Dokter({
+            nama: nama,
+            alamat: alamat,
+            noTelp : noTelp
+        })
+        var saveDokter = await newDokters.save()
+        if(saveDokter){
+            return saveDokter
+        }
     }
 }
 module.exports = dokterRepositories

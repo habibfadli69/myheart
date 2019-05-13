@@ -6,13 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var passport = require('passport');
 var config = require('./config/database');
 
 mongoose.connect(config.database);
 
-var sapi = require('./routes/sapi.route');
-var perangkat = require('./routes/perangkat.route');
+var dokter = require('./routes/dokter.route');
+// var pasien = require('./routes/pasien.route');
 
 var app = express();
 
@@ -34,14 +33,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
-app.use(passport.initialize());
 
 app.get('/', function(req, res) {
   res.send('Page under construction.');
 });
 
-app.use('/api/sapi', sapi);
-app.use('/api/perangkat', perangkat);
+app.use('/api/dokter', dokter);
+// app.use('/api/pasien', pasien);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
