@@ -6,13 +6,13 @@
 
 version: '2'
 services:
-  authentication-service:
-    container_name: auth-container
-    build: ./auth/
-    ports:
-      - 3000:3000
-    links:
-      - mongo
+  # authentication-service:
+  #   container_name: auth-container
+  #   build: ./auth/
+  #   ports:
+  #     - 3000:3000
+  #   links:
+  #     - mongo
 
   sensor-server-service:
     container_name: sensor-server-container
@@ -23,18 +23,18 @@ services:
       - mongo
   
 
-  expert-system-service:
-    container_name: expert-system-container
-    build: ./expert_system/modules/
-    ports:
-      - 4000:4000
-    links:
-      - mongo
-    environment:
-      - ENV=development 
-      - PORT=4000
-      - DB=mongodb://mongo:27017/seecow_db
-      - SECRET=nodeauthsecret
+  # expert-system-service:
+  #   container_name: expert-system-container
+  #   build: ./expert_system/modules/
+  #   ports:
+  #     - 4000:4000
+  #   links:
+  #     - mongo
+  #   environment:
+  #     - ENV=development 
+  #     - PORT=4000
+  #     - DB=mongodb://mongo:27017/seecow_db
+  #     - SECRET=nodeauthsecret
      
   # frontend-service:
   #   container_name: frontend-container
