@@ -7,17 +7,8 @@
 // const socketApp = require('../socket/socket-app');
 // var ObjectId = require('mongoose').Types.ObjectId;
 // var dokterRepositories = require('../repositories/dokter.repositories');
-// var ConnectRaspi = require('../services/ConnectRaspi');
 // var Constants = require('../services/Constants');
-// var admin = require("firebase-admin");           
-// var serviceAccount = require("../seecowapp-firebase-adminsdk-3hlhu-22888ee3ed.json");
-// /**
-//  * initial FCM app
-//  */
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://seecowapp.firebaseio.com"
-// });
+
 
 // const pasienRepositories = {
 //   createPasien: async(idDokter,namaPasien,umurPasien,alamatPasien,tinggiPasien,beratPasien)=>{
@@ -143,31 +134,6 @@
 //        */
 //       tmpKondisi = Constants.ABNORMAL_CONDITION
       
-//       /**
-//        * Push notif to FCM
-//        */
-//       let pasienInform = await pasien.findById(id)
-           
-//       var registrationToken = "dApGNjvtYws:APA91bF-kHVAHVXQ6EZLMtPU1LgesKtIOuWBOlXhvzjf1uo-NF5U6IVsfFK03FtHshUaN0_41ohu9oJwHjBSCa207zmcxeBRvTpBNBkljj1OpgOWHNrDh9Bb6yoCOY26a-PvgKysAQas";
-//       var payload = {
-//         notification: {
-//           title: pasienInform.namaPasien + " is abnormal !!",
-//           body: "Please open yours MyHeart App and let's check your patient"
-//         }
-//       };
-      
-//        var options = {
-//         priority: "high",
-//         timeToLive: 60 * 60 *24
-//       };
-//       // admin.messaging().sendToDevice(registrationToken, payload, options)
-//       //   .then(function(response) {
-//       //     console.log("Successfully sent message:", response);
-//       //   })
-//       //   .catch(function(error) {
-//       //     console.log("Error sending message:", error);
-//       //   });
-//     }
 
 //     let pasienOnUpdate =  await 
 //     Pasien.update({
