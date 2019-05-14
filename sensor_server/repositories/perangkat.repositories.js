@@ -24,6 +24,7 @@ const perangkatRepositories = {
           alamatPasien : alamatPasien,
           tinggiPasien : tinggiPasien,
           beratPasien : beratPasien,
+          statusPasien : 0,
           data: [subData]
       }
       var newPerangkat = new Perangkat({

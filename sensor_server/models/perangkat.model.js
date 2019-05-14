@@ -12,6 +12,7 @@ var PerangkatSchema = new Schema({
     alamatPasien : String,
     tinggiPasien : String,
     beratPasien : String,
+    statusPasien : Number,
     data:[{
       tanggal:{ type: Date, default: Date.now },
       thermal:Number,
