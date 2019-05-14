@@ -6,8 +6,11 @@
 // var sapiRepositories = require('../repositories/sapi.repositories');
 // var Token = require('../services/TokenAuthentication');
 // var Response = require('../services/Response');
-
-// module.exports = {
+var mongoose = require('mongoose');
+var config = require('../config/database');
+var perangkatRepositories = require('../repositories/perangkat.repositories');
+var Response = require('../services/Response');
+module.exports = {
   
     createPerangkat: async(req,res)=>{
         let response = new Response()
@@ -20,6 +23,7 @@
         }
         res.json(response) 
     }
+}
 //   getDataToday : async(req,res)=>{
 //     let token = Token.authorizationToken(req.headers);
 //     var today = new Date();
