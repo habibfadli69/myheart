@@ -39,7 +39,7 @@ const perangkatRepositories = {
     updateData : async(id,thermal,heartrate,oxygen,conductivity,resistance,conductancevoltage,emg,ecg)=>{
         var tmpKondisi = 1
         var today = new Date()
-        if(heartrate <= 60 || heartrate >= 100 || oxygen <= 95 || oxygen >=100){
+        if(Number(heartrate) <= 60 || Number(heartrate) >= 100 || Number(oxygen) <= 95 || Number(oxygen) >=100){
             tmpKondisi = 0
         }
         let perangkatUpdate = await Perangkat.update({
@@ -50,14 +50,14 @@ const perangkatRepositories = {
         $push:{
             "pasien.data":{
                 tanggal : today,
-                thermal : thermal,
-                heartrate: heartrate,
-                oxygen : oxygen,
-                conductivity : conductivity,
-                resistance : resistance,
-                conductancevoltage : conductancevoltage,
-                emg : emg,
-                ecg : ecg,
+                thermal : Number(thermal),
+                heartrate: Number(heartrate),
+                oxygen : Number(oxygen),
+                conductivity : Number(conductivity),
+                resistance : Number(resistance),
+                conductancevoltage : Number(conductancevoltage),
+                emg : Number(emg),
+                ecg : Number(ecg),
                 kondisi : tmpKondisi
             }
         }
