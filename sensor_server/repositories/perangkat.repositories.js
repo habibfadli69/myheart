@@ -48,7 +48,7 @@ const perangkatRepositories = {
         },
     {
         $push:{
-            "pasien.data":{
+            "pasien.$.data":{
                 tanggal : today,
                 thermal : Number(thermal),
                 heartrate: Number(heartrate),
