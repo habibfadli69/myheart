@@ -11,7 +11,7 @@ var config = require('./config/database');
 mongoose.connect(config.database);
 
 var dokter = require('./routes/dokter.route');
-// var pasien = require('./routes/pasien.route');
+var perangkat = require('./routes/perangkat.route');
 
 var app = express();
 
@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
 });
 
 app.use('/api/dokter', dokter);
-// app.use('/api/pasien', pasien);
+app.use('/api/perangkat', perangkat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

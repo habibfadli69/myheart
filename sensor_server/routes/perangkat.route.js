@@ -1,10 +1,9 @@
-var passport = require('passport');
-require('../config/passport')(passport);
-var jwt = require('jsonwebtoken');
 var express = require('express');
 var router = express.Router();
-const sapi_controller = require('../controllers/sapi.controller');
+const perangkat_controller = require('../controllers/perangkat.controller');
 
+router.post('/create',perangkat_controller.createPasien);
+/*
 router.post('/create',passport.authenticate('jwt', { session: false}), sapi_controller.create);
 router.delete('/:id/delete',passport.authenticate('jwt', { session: false}), sapi_controller.sapi_delete);
 router.put('/:id/update',passport.authenticate('jwt', { session: false}),sapi_controller.sapi_update);
@@ -16,3 +15,4 @@ router.post('/data-in-time',passport.authenticate('jwt', { session: false}), sap
 router.get('/sapi-show-all',passport.authenticate('jwt', { session: false}), sapi_controller.sapi_show_all);
 router.get('/requested-sapi',passport.authenticate('jwt', { session: false}), sapi_controller.get_requested_sapi);
 module.exports = router;
+*/

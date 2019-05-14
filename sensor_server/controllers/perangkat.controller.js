@@ -9,6 +9,17 @@
 
 // module.exports = {
   
+    createPerangkat: async(req,res)=>{
+        let response = new Response()
+        try{
+            response.setData(await perangkatRepositories.createPasien(req.body.idDokter,req.body.namaPasien,req.body.umurPasien,req.body.alamatPasien,req.body.tinggiPasien,req.body.beratPasien,req.body.nik))
+
+        }catch(e){
+            response.setStatus(false)
+            response.setMessage(e)
+        }
+        res.json(response) 
+    }
 //   getDataToday : async(req,res)=>{
 //     let token = Token.authorizationToken(req.headers);
 //     var today = new Date();

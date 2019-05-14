@@ -1,3 +1,42 @@
+var mongoose = require('mongoose');
+var passport = require('passport');
+var config = require('../config/database');
+var Perangkat = require("../models/perangkat.model");
+
+const perangkatRepositories = {
+    createPasien : async(idDokter,namaPasien,umurPasien,alamatPasien,tinggiPasien,beratPasien,nik)=>{
+      var subData = {
+        tanggal : new Date(),
+        thermal : 0,
+        heartrate: 0,
+        oxygen : 0,
+        conductivity : 0,
+        resistance : 0,
+        conductancevoltage : 0,
+        emg : 0,
+        ecg : 0,
+        kondisi : 0
+      }
+      let subPasien = {
+          nik : nik,
+          namaPasien : namaPasien,
+          umurPasien : umurPasien,
+          alamatPasien : alamatPasien,
+          tinggiPasien : tinggiPasien,
+          beratPasien : beratPasien,
+          data: [subData]
+      }
+      var newPerangkat = new Perangkat({
+            idDokter: idDokter,
+            pasien:[subPasien]
+        })
+        var savePerangkat = await newPerangkat.save()
+        if(savePerangkat){
+            return savePerangkat
+        }
+    }
+}
+module.exports = perangkatRepositories
 // var mongoose = require('mongoose');
 // var passport = require('passport');
 // var config = require('../config/database');
