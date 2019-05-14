@@ -10,6 +10,7 @@ const dokter_controller = require('../controllers/dokter.controller');
 
 router.post('/create',dokter_controller.createDokter);
 router.post('/create-perangkat',dokter_controller.createPerangkat);
+router.put('/:id/update-data',dokter_controller.updateData);
 // router.post('/data-today',passport.authenticate('jwt', { session: false}), sapi_controller.getDataToday);
 // router.post('/data-in-time',passport.authenticate('jwt', { session: false}), sapi_controller.getDataInTime);
 // router.get('/sapi-show-all',passport.authenticate('jwt', { session: false}), sapi_controller.sapi_show_all);

@@ -35,6 +35,36 @@ const perangkatRepositories = {
         if(savePerangkat){
             return savePerangkat
         }
+    },
+    updateData : async(id,thermal,heartrate,oxygen,conductivity,resistance,conductancevoltage,emg,ecg)=>{
+        var tmpKondisi = 1
+        if(heartrate <= 60 || heartrate >= 100 || oxygen <= 95 || oxygen >=100){
+            tmpKondisi = 0
+        }
+        let perangkatUpdate = await Perangkat.update({
+            _id:id,
+            "pasien.statusPasien" : 1
+        },
+    {
+        $push:{
+            "pasien.data":{
+                tanggal : today,
+                thermal : thermal,
+                heartrate: heartrate,
+                oxygen : oxygen,
+                conductivity : conductivity,
+                resistance : resistance,
+                conductancevoltage : conductancevoltage,
+                emg : emg,
+                ecg : ecg,
+                kondisi : tmpKondisi
+            }
+        }
+        
+    })
+    if(perangkatUpdate){
+        return perangkatUpdate
+    }
     }
 }
 module.exports = perangkatRepositories
