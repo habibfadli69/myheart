@@ -38,6 +38,7 @@ const perangkatRepositories = {
     },
     updateData : async(id,thermal,heartrate,oxygen,conductivity,resistance,conductancevoltage,emg,ecg)=>{
         var tmpKondisi = 1
+        var today = new Date()
         if(heartrate <= 60 || heartrate >= 100 || oxygen <= 95 || oxygen >=100){
             tmpKondisi = 0
         }
