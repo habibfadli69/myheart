@@ -3,6 +3,7 @@ var router = express.Router();
 const perangkat_controller = require('../controllers/perangkat.controller');
 
 router.post('/create',perangkat_controller.createPasien);
+module.exports = router
 /*
 router.post('/create',passport.authenticate('jwt', { session: false}), sapi_controller.create);
 router.delete('/:id/delete',passport.authenticate('jwt', { session: false}), sapi_controller.sapi_delete);
