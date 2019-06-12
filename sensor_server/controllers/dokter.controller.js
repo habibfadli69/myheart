@@ -36,5 +36,15 @@ module.exports = {
             response.setMessage(e)
         }
         res.json(response) 
+    },
+    getAllData: async(req,res)=>{
+        let response = new Response()
+        try{
+            response.setData(await perangkatRepositories.getAllData())
+        }catch(e){
+            response.setStatus(false)
+            response.setMessage(e)
+        }
+        res.json(response) 
     }
 }

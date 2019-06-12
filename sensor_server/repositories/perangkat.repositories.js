@@ -66,7 +66,11 @@ const perangkatRepositories = {
     if(perangkatUpdate){
         return perangkatUpdate
     }
-    }
+    },
+    getAllData: async()=>{
+    let result = await Perangkat.find()
+     return result
+   }
 }
 module.exports = perangkatRepositories
 // var mongoose = require('mongoose');
