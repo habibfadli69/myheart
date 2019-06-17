@@ -30,7 +30,7 @@ module.exports = {
     updateData: async(req,res)=>{
         let response = new Response()
         try{
-            response.setData(await perangkatRepositories.updateData(req.params.id,req.body.thermal,req.body.heartrate,req.body.oxygen,req.body.conductivity,req.body.resistance,req.body.conductancevoltage,req.body.emg,req.body.ecg))
+            response.setData(await perangkatRepositories.updateData(req.params.id,req.body.thermal,req.body.heartrate,req.body.oxygen,req.body.conductivity,req.body.resistance,req.body.conductancevoltage,req.body.ecg,req.body.emg))
         }catch(e){
             response.setStatus(false)
             response.setMessage(e)

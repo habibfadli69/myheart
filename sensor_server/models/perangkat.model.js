@@ -21,8 +21,8 @@ var PerangkatSchema = new Schema({
       conductivity:Number,
       resistance:Number,
       conductancevoltage:Number,
-      emg:Number,
       ecg:Number,
+      emg:Number,
       kondisi:Number
     }]
   }]

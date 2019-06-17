@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var config = require('../config/database');
 var Perangkat = require("../models/perangkat.model");
+const socketApp = require('../socket/socket-app');
 
 const perangkatRepositories = {
     createPasien : async(idDokter,namaPasien,umurPasien,alamatPasien,tinggiPasien,beratPasien,nik)=>{
@@ -13,8 +14,8 @@ const perangkatRepositories = {
         conductivity : 0,
         resistance : 0,
         conductancevoltage : 0,
-        emg : 0,
         ecg : 0,
+        emg : 0,
         kondisi : 0
       }
       let subPasien = {
@@ -36,7 +37,7 @@ const perangkatRepositories = {
             return savePerangkat
         }
     },
-    updateData : async(id,thermal,heartrate,oxygen,conductivity,resistance,conductancevoltage,emg,ecg)=>{
+    updateData : async(id,thermal,heartrate,oxygen,conductivity,resistance,conductancevoltage,ecg,emg)=>{
         var tmpKondisi = 1
         var today = new Date()
         if(Number(heartrate) <= 60 || Number(heartrate) >= 100 || Number(oxygen) <= 95 || Number(oxygen) >=100){
@@ -56,14 +57,15 @@ const perangkatRepositories = {
                 conductivity : Number(conductivity),
                 resistance : Number(resistance),
                 conductancevoltage : Number(conductancevoltage),
-                emg : Number(emg),
                 ecg : Number(ecg),
+                emg : Number(emg),
                 kondisi : tmpKondisi
             }
         }
         
     })
     if(perangkatUpdate){
+        socketApp.notifyPasienData(id, perangkatUpdate)
         return perangkatUpdate
     }
     },
