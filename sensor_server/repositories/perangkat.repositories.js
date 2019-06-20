@@ -65,8 +65,9 @@ const perangkatRepositories = {
         
     })
     if(perangkatUpdate){
-        socketApp.notifyPasienData(id, perangkatUpdate)
-        return perangkatUpdate
+        let perangkatAfterUpdt = await Perangkat.findById(id)
+        socketApp.notifyPasienData(id, perangkatAfterUpdt)
+        return perangkatAfterUpdt
     }
     },
     getAllData: async()=>{
