@@ -26,7 +26,7 @@ const perangkatRepositories = {
           tinggiPasien : tinggiPasien,
           beratPasien : beratPasien,
           statusPasien : 0,
-          data: [subData]
+          datas: [subData]
       }
       var newPerangkat = new Perangkat({
             idDokter: idDokter,
@@ -49,7 +49,7 @@ const perangkatRepositories = {
         },
     {
         $push:{
-            "pasien.$.data":{
+            "pasien.$.datas":{
                 tanggal : today,
                 thermal : Number(thermal),
                 heartrate: Number(heartrate),
