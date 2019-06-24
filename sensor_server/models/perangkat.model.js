@@ -13,12 +13,12 @@ var PerangkatSchema = new Schema({
     tinggiPasien : String,
     beratPasien : String,
     statusPasien : Number,
-    datas:[{
+    data:[{
       tanggal:{ type: Date, default: Date.now },
-      thermal:Number,
+      temperature:Number,
       heartrate:Number,
       oxygen:Number,
-      conductivity:Number,
+      conductance:Number,
       resistance:Number,
       conductancevoltage:Number,
       ecg:Number,

@@ -8,10 +8,10 @@ const perangkatRepositories = {
     createPasien : async(idDokter,namaPasien,umurPasien,alamatPasien,tinggiPasien,beratPasien,nik)=>{
       var subData = {
         tanggal : new Date(),
-        thermal : 0,
+        temperature : 0,
         heartrate: 0,
         oxygen : 0,
-        conductivity : 0,
+        conductance : 0,
         resistance : 0,
         conductancevoltage : 0,
         ecg : 0,
@@ -26,7 +26,7 @@ const perangkatRepositories = {
           tinggiPasien : tinggiPasien,
           beratPasien : beratPasien,
           statusPasien : 0,
-          datas: [subData]
+          data: [subData]
       }
       var newPerangkat = new Perangkat({
             idDokter: idDokter,
@@ -37,7 +37,7 @@ const perangkatRepositories = {
             return savePerangkat
         }
     },
-    updateData : async(id,thermal,heartrate,oxygen,conductivity,resistance,conductancevoltage,ecg,emg)=>{
+    updateData : async(id,temperature,heartrate,oxygen,conductance,resistance,conductancevoltage,ecg,emg)=>{
         var tmpKondisi = 1
         var today = new Date()
         if(Number(heartrate) <= 60 || Number(heartrate) >= 100 || Number(oxygen) <= 95 || Number(oxygen) >=100){
@@ -49,12 +49,12 @@ const perangkatRepositories = {
         },
     {
         $push:{
-            "pasien.$.datas":{
+            "pasien.$.data":{
                 tanggal : today,
-                thermal : Number(thermal),
+                temperature : Number(thermal),
                 heartrate: Number(heartrate),
                 oxygen : Number(oxygen),
-                conductivity : Number(conductivity),
+                conductance : Number(conductivity),
                 resistance : Number(resistance),
                 conductancevoltage : Number(conductancevoltage),
                 ecg : Number(ecg),
