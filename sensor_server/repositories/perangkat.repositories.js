@@ -47,14 +47,14 @@ const perangkatRepositories = {
             _id:id,
             "pasien.statusPasien" : 1
         },
-    {
+        {
         $push:{
             "pasien.$.data":{
                 tanggal : today,
-                temperature : Number(thermal),
+                temperature : Number(temperature),
                 heartrate: Number(heartrate),
                 oxygen : Number(oxygen),
-                conductance : Number(conductivity),
+                conductance : Number(conductance),
                 resistance : Number(resistance),
                 conductancevoltage : Number(conductancevoltage),
                 ecg : Number(ecg),
