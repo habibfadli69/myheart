@@ -100,7 +100,7 @@ const dokterRepositories = {
   }
   },
 
-    updatePasien : async(id, namaPasien, nicknamePasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
+    updatePasien : async(id, namaPasien, nicknamePasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
       var subData = {
         tanggal : new Date(),
         temperature : 0,
@@ -126,6 +126,7 @@ const dokterRepositories = {
             tinggiPasien : tinggiPasien,
             beratPasien : beratPasien,
             notelpPasien : notelpPasien,
+            kondisi: kondisi,
             data: [subData]
           }
       }     
