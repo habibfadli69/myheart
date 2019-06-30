@@ -117,7 +117,7 @@ const dokterRepositories = {
       },
       {
       $push:{
-          "dokter.$.pasien":{
+          "pasien":{
             namaPasien : namaPasien,
             nicknamePasien : nicknamePasien,
             birthdayPasien : birthdayPasien,
@@ -148,7 +148,7 @@ const dokterRepositories = {
         },
         {
         $push:{
-            "pasien":{
+            "pasien.$.data":{
                 tanggal : today,
                 temperature : Number(temperature),
                 heartrate: Number(heartrate),
