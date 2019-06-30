@@ -112,7 +112,7 @@ const dokterRepositories = {
         ecg : 0,
         emg : 0,
       }
-      let dokterUpdate = await Dokter.update({
+      let pasienUpdate = await Dokter.update({
           _id: id,
       },
       {
