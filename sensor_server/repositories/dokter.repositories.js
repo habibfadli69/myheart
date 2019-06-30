@@ -78,11 +78,10 @@ const dokterRepositories = {
             tinggiPasien : tinggiPasien,
             beratPasien : beratPasien,
             notelpPasien : notelpPasien,
-            pasien: [subdata]
+            pasien: [subData]
           }
-      }
-      
-  })
+      }     
+      })
   if(dokterUpdate){
       let dokterAfterUpdt = await Dokter.findById(id)
       return dokterAfterUpdt
