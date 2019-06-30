@@ -45,10 +45,10 @@ const dokterRepositories = {
         dokter : [subDokter]
       })
 
-      var savePerangkat = await newPerangkat.save()
+      var saveDokter = await newDokter.save()
 
-      if(savePerangkat) {
-        return savePerangkat
+      if(saveDokter) {
+        return saveDokter
       }
     },
     
