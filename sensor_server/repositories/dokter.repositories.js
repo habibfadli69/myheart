@@ -51,7 +51,44 @@ const dokterRepositories = {
         return saveDokter
       }
     },
-    
+
+    updatePasien : async(id, namaPasien, nicknamePasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
+      var subData = {
+        tanggal : new Date(),
+        temperature : 0,
+        heartrate: 0,
+        oxygen : 0,
+        conductance : 0,
+        resistance : 0,
+        conductancevoltage : 0,
+        ecg : 0,
+        emg : 0,
+      }
+      let dokterUpdate = await Dokter.update({
+          _id: id,
+      },
+      {
+      $push:{
+          "dokter.$.pasien":{
+            namaPasien : namaPasien,
+            nicknamePasien : nicknamePasien,
+            birthdayPasien : birthdayPasien,
+            umurPasien : umurPasien,
+            alamatPasien : alamatPasien,
+            tinggiPasien : tinggiPasien,
+            beratPasien : beratPasien,
+            notelpPasien : notelpPasien,
+            pasien: [subdata]
+          }
+      }
+      
+  })
+  if(dokterUpdate){
+      let dokterAfterUpdt = await Dokter.findById(id)
+      return dokterAfterUpdt
+  }
+  },
+
     updateData : async(id,temperature,heartrate,oxygen,conductance,resistance,conductancevoltage,ecg,emg)=>{
         var tmpKondisi = 1
         var today = new Date()
@@ -85,6 +122,7 @@ const dokterRepositories = {
         return perangkatAfterUpdt
     }
     },
+
     getAllData: async()=>{
     let result = await Perangkat.find()
      return result

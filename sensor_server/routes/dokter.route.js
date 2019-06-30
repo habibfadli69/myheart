@@ -9,6 +9,7 @@ const dokter_controller = require('../controllers/dokter.controller');
 // router.get('/:id/sapidetail',passport.authenticate('jwt', { session: false}),sapi_controller.sapi_detail);
 
 router.post('/create-dokter', dokter_controller.createDokter);
+router.put('/:id/update-pasien',dokter_controller.updatePasien);
 
 router.post('/create-perangkat',dokter_controller.createPerangkat);
 router.put('/:id/update-data',dokter_controller.updateData);
