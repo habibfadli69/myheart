@@ -52,6 +52,30 @@ const dokterRepositories = {
       }
     },
 
+    updateDokter : async(id, namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
+      let dokterUpdate = await Dokter.update({
+          _id: id,
+      },
+      {
+      $push:{
+          "dokter":{
+            namaDokter : namaDokter,
+            nicknameDokter : nicknameDokter,
+            birthdayDokter : birthdayDokter,
+            umurDokter : umurDokter,
+            alamatDokter : alamatDokter,
+            tinggiDokter : tinggiDokter,
+            beratDokter : beratDokter,
+            notelpDokter : notelpDokter,
+          }
+      }     
+      })
+  if(dokterUpdate){
+      let dokterAfterUpdt = await Dokter.findById(id)
+      return dokterAfterUpdt
+  }
+  },
+
     updatePasien : async(id, namaPasien, nicknamePasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
       var subData = {
         tanggal : new Date(),
