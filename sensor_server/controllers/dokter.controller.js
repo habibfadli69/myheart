@@ -27,15 +27,15 @@ module.exports = {
     updatePasien : async(req,res) => {
         let response = new Response()
         // res.json(req)
-        let data=await dokterRepositories.updatePasien(req.params.id, req.body.namaPasien, req.body.nicknamePasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien, req.body.kondisi)
-        res.json(data)
-        // try {
-        //     response.setData(await dokterRepositories.updatePasien(req.params.id, req.body.namaPasien, req.body.nicknamePasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien, req.body.kondisi))
-        // } catch (e) {
-        //     response.setStatus(false)
-        //     response.setMessage(e)
-        // }
-        // res.json(response) 
+        //let data=await dokterRepositories.updatePasien(req.params.id, req.body.namaPasien, req.body.nicknamePasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien, req.body.kondisi)
+        //res.json(data)
+        try {
+            response.setData(await dokterRepositories.updatePasien(req.params.id, req.body.namaPasien, req.body.nicknamePasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien, req.body.kondisi))
+        } catch (e) {
+            response.setStatus(false)
+            response.setMessage(e)
+        }
+        res.json(response) 
     },
     createPerangkat: async(req,res)=>{
         let response = new Response()
