@@ -106,9 +106,9 @@ const dokterRepositories = {
           }
       }     
       })
-  if(dokterUpdate){
-      let dokterAfterUpdt = await Dokter.findById(id)
-      return dokterAfterUpdt
+  if(pasienUpdate){
+      let pasienAfterUpdt = await Dokter.findById(id)
+      return pasienAfterUpdt
   }
   },
 

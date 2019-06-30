@@ -14,6 +14,16 @@ module.exports = {
         }
         res.json(response) 
     },
+    updateDokter : async(req,res) => {
+        let response = new Response()
+        try {
+            response.setData(await dokterRepositories.updatePasien(req.params.id, req.body.namaDokter, req.body.nicknameDokter, req.body.birthdayDokter, req.body.umurDokter, req.body.alamatDokter, req.body.tinggiDokter, req.body.beratDokter, req.body.notelpDokter))
+        } catch (e) {
+            response.setStatus(false)
+            response.setMessage(e)
+        }
+        res.json(response) 
+    },
     updatePasien : async(req,res) => {
         let response = new Response()
         try {
