@@ -126,7 +126,7 @@ const dokterRepositories = {
             tinggiPasien : tinggiPasien,
             beratPasien : beratPasien,
             notelpPasien : notelpPasien,
-            pasien: [subData]
+            data: [subData]
           }
       }     
       })
