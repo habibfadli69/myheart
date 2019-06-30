@@ -53,6 +53,29 @@ const dokterRepositories = {
     },
 
     updateDokter : async(id, namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
+      var subData = {
+        tanggal : new Date(),
+        temperature : 0,
+        heartrate: 0,
+        oxygen : 0,
+        conductance : 0,
+        resistance : 0,
+        conductancevoltage : 0,
+        ecg : 0,
+        emg : 0,
+      }
+      let subPasien = {
+        namaPasien : null,
+        nicknamePasien : null,
+        birthdayPasien : null,
+        umurPasien : null,
+        alamatPasien : null,
+        tinggiPasien : null,
+        beratPasien : null,
+        notelpPasien : null,
+        kondisi : 0, 
+        data: [subData]
+      }
       let dokterUpdate = await Dokter.update({
           _id: id,
       },
@@ -67,6 +90,7 @@ const dokterRepositories = {
             tinggiDokter : tinggiDokter,
             beratDokter : beratDokter,
             notelpDokter : notelpDokter,
+            pasien: [subPasien]
           }
       }     
       })
