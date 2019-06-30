@@ -17,7 +17,7 @@ module.exports = {
     updateDokter : async(req,res) => {
         let response = new Response()
         try {
-            response.setData(await dokterRepositories.updatePasien(req.params.id, req.body.namaDokter, req.body.nicknameDokter, req.body.birthdayDokter, req.body.umurDokter, req.body.alamatDokter, req.body.tinggiDokter, req.body.beratDokter, req.body.notelpDokter))
+            response.setData(await dokterRepositories.updateDokter(req.params.id, req.body.namaDokter, req.body.nicknameDokter, req.body.birthdayDokter, req.body.umurDokter, req.body.alamatDokter, req.body.tinggiDokter, req.body.beratDokter, req.body.notelpDokter))
         } catch (e) {
             response.setStatus(false)
             response.setMessage(e)
