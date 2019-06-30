@@ -8,7 +8,8 @@ const dokter_controller = require('../controllers/dokter.controller');
 // router.get('/showsapi',passport.authenticate('jwt', { session: false}),sapi_controller.sapi_show_by_farmer);
 // router.get('/:id/sapidetail',passport.authenticate('jwt', { session: false}),sapi_controller.sapi_detail);
 
-router.post('/create',dokter_controller.createDokter);
+router.post('/create-dokter', dokter_controller.createDokter);
+
 router.post('/create-perangkat',dokter_controller.createPerangkat);
 router.put('/:id/update-data',dokter_controller.updateData);
 router.get('/getdata',dokter_controller.getAllData);

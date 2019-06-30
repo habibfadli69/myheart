@@ -2,18 +2,41 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DokterSchema = new Schema({
-  nama: {
-    type: String,
-    required: true
+  idDokter: {
+    type: Schema.Types.ObjectId,
   },
-  alamat: {
-    type: String,
-    required: true
-  },
-  noTelp: {
-    type: Number,
-    required: true
-  }
+  dokter:[{
+    namaDokter:String,
+    nicknameDokter:String,
+    birthdayDokter:String,
+    umurDokter:Number,
+    alamatDokter:String,
+    tinggiDokter:Number,
+    beratDokter:Number,
+    notelpDokter:String,
+    pasien:[{
+      namaPasien:String,
+      nicknamePasien:String,
+      birthdayPasien:String,
+      umurPasien:Number,
+      alamatPasien:String,
+      tinggiPasien:Number,
+      beratPasien:Number,
+      notelpPasien:String,
+      kondisi:Number,
+      data:[{
+        tanggal:{ type:Date, default:Date.now },
+        temperature:Number,
+        heartrate:Number,
+        oxygen:Number,
+        conductance:Number,
+        resistance:Number,
+        conductancevoltage:Number,
+        ecg:Number,
+        emg:Number,
+      }]
+    }] 
+  }]
 });
 
 module.exports = mongoose.model('Dokter', DokterSchema);

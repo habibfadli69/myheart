@@ -1,16 +1,14 @@
 var mongoose = require('mongoose');
 var config = require('../config/database');
 var dokterRepositories = require('../repositories/dokter.repositories');
-var perangkatRepositories = require('../repositories/perangkat.repositories');
 var Response = require('../services/Response');
 
 module.exports = {
-    createDokter: async(req,res)=>{
+    createDokter : async(req,res) => {
         let response = new Response()
-        try{
-            response.setData(await dokterRepositories.createDokter(req.body.nama,req.body.alamat,req.body.noTelp))
-
-        }catch(e){
+        try {
+            response.setData(await dokterRepositories.createDokter(req.body.namaDokter, req.body.nicknameDokter, req.body.birthdayDokter, req.body.umurDokter, req.body.alamatDokter, req.body.tinggiDokter, req.body.beratDokter, req.body.notelpDokter))
+        } catch(e) {
             response.setStatus(false)
             response.setMessage(e)
         }
