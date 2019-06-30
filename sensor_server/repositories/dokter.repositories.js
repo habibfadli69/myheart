@@ -134,6 +134,8 @@ const dokterRepositories = {
   if(pasienUpdate){
       let pasienAfterUpdt = await Dokter.findById(id)
       return pasienAfterUpdt
+  }else{
+    return false
   }
   },
 
