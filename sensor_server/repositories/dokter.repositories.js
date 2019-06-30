@@ -5,7 +5,7 @@ var Dokter = require("../models/dokter.model");
 const socketApp = require('../socket/socket-app');
 
 const dokterRepositories = {
-    createDokter : async(namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
+    createDokter : async(idDokter, namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
       var subData = {
         tanggal : new Date(),
         temperature : 0,
