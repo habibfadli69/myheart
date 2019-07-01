@@ -10,10 +10,10 @@ const dokter_controller = require('../controllers/dokter.controller');
 
 router.post('/create-dokter', dokter_controller.createDokter);
 router.post('/:id/update-pasien',dokter_controller.updatePasien);
-router.put('/:id/update-dokter',dokter_controller.updateDokter);
+router.post('/:id/update-dokter',dokter_controller.updateDokter);
+router.post('/:id/update-data',dokter_controller.updateData);
 
 router.post('/create-perangkat',dokter_controller.createPerangkat);
-router.put('/:id/update-data',dokter_controller.updateData);
 router.get('/getdata',dokter_controller.getAllData);
 
 // router.post('/data-today',passport.authenticate('jwt', { session: false}), sapi_controller.getDataToday);

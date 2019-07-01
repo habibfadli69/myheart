@@ -139,20 +139,14 @@ const dokterRepositories = {
   }
   },
 
-    updateData : async(id,temperature,heartrate,oxygen,conductance,resistance,conductancevoltage,ecg,emg)=>{
-        var tmpKondisi = 1
-        var today = new Date()
-        if(Number(heartrate) <= 60 || Number(heartrate) >= 100 || Number(oxygen) <= 95 || Number(oxygen) >=100){
-            tmpKondisi = 0
-        }
-        let perangkatUpdate = await Perangkat.update({
-            _id:id,
-            "pasien.statusPasien" : 1
+    updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
+        let dataUpdate = await Dokter.update({
+            _id:id
         },
         {
         $push:{
-            "pasien.$.data":{
-                tanggal : today,
+            "dokter.0.pasien.0.data":{
+                tanggal : new Date(),
                 temperature : Number(temperature),
                 heartrate: Number(heartrate),
                 oxygen : Number(oxygen),
@@ -160,16 +154,15 @@ const dokterRepositories = {
                 resistance : Number(resistance),
                 conductancevoltage : Number(conductancevoltage),
                 ecg : Number(ecg),
-                emg : Number(emg),
-                kondisi : tmpKondisi
+                emg : Number(emg)
             }
         }
         
     })
-    if(perangkatUpdate){
-        let perangkatAfterUpdt = await Perangkat.findById(id)
-        socketApp.notifyPasienData(id, perangkatAfterUpdt)
-        return perangkatAfterUpdt
+    if(dataUpdate){
+        let dataAfterUpdt = await Dokter.findById(id)
+        socketApp.notifyPasienData(id, dataAfterUpdt)
+        return dataAfterUpdt
     }
     },
 
