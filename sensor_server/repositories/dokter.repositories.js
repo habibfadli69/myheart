@@ -117,7 +117,7 @@ const dokterRepositories = {
       },
       {
       $push:{
-          "dokter.$.pasien":{
+          "dokter.0.pasien":{
             namaPasien : namaPasien,
             nicknamePasien : nicknamePasien,
             birthdayPasien : birthdayPasien,
