@@ -153,7 +153,7 @@ const dokterRepositories = {
         },
         {
         $push:{
-            "dokter.0.pasien.$.data":{
+            "dokter.0.pasien.$[].data":{
                 tanggal : new Date(),
                 temperature : Number(temperature),
                 heartrate: Number(heartrate),
