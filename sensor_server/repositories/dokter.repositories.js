@@ -50,7 +50,8 @@ const dokterRepositories = {
         // tinggiDokter : null,
         // beratDokter : null,
         // notelpDokter : null,
-        // pasien : [subPasien]
+
+        pasien : [subPasien]
       }
       var newDokter = new Dokter({
         idDokter : idDokter,
