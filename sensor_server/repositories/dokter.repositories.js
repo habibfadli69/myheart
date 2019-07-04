@@ -54,7 +54,7 @@ const dokterRepositories = {
         pasien : [subPasien]
       }
       var newDokter = new Dokter({
-        idDokter : idDokter,
+        // idDokter : idDokter,
         dokter : [subDokter]
       })
 
