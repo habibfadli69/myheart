@@ -40,21 +40,9 @@ const dokterRepositories = {
         tinggiDokter : tinggiDokter,
         beratDokter : beratDokter,
         notelpDokter : notelpDokter,
-        
-        // namaDokter : "Budi",
-        // emailDokter : "budi29",
-        // passwordDokter : "budi123",
-        // birthdayDokter : "29 juli 1984",
-        // umurDokter : 35,
-        // alamatDokter : "Surabaya",
-        // tinggiDokter : 170,
-        // beratDokter : 60,
-        // notelpDokter : "082234668569",
-
         pasien : [subPasien]
       }
       var newDokter = new Dokter({
-        // idDokter : idDokter,
         dokter : [subDokter]
       })
 
@@ -65,53 +53,58 @@ const dokterRepositories = {
 
     },
 
-    updateDokter : async(id, namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
+    addDokter : async(id, namaDokter, emailDokter, passwordDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
       var subData = {
         tanggal : new Date(),
-        temperature : 0,
-        heartrate: 0,
-        oxygen : 0,
-        conductance : 0,
-        resistance : 0,
-        conductancevoltage : 0,
-        ecg : 0,
-        emg : 0
+        temperature : 37,
+        heartrate: 92,
+        oxygen : 97,
+        conductance : 0.6,
+        resistance : 0.6,
+        conductancevoltage : 0.6,
+        ecg : 0.6,
+        emg : 50
       }
       let subPasien = {
-        namaPasien : null,
-        nicknamePasien : null,
-        birthdayPasien : null,
-        umurPasien : null,
-        alamatPasien : null,
-        tinggiPasien : null,
-        beratPasien : null,
-        notelpPasien : null,
-        kondisi : 0, 
-        data: [subData]
+        namaPasien : "imam Abu Mansur",
+        emailPasien : "imam29@gmail.com",
+        passwordPasien : "imam29",
+        birthdayPasien : "28 Agustus 1997",
+        umurPasien : 22,
+        alamatPasien : "Lamongan",
+        tinggiPasien : 160,
+        beratPasien : 50,
+        notelpPasien : "082234668569",
+        kondisi : 1, 
+        data : [subData]
       }
-      let dokterUpdate = await Dokter.update({
-          _id: id
+
+      let dokterAdd = await Dokter.update({
+        _id : id
       },
       {
-      $push:{
-          "dokter":{
+      $push : {
+          "dokter" : {
             namaDokter : namaDokter,
-            nicknameDokter : nicknameDokter,
+            emailDokter : emailDokter,
+            passwordDokter : passwordDokter,
             birthdayDokter : birthdayDokter,
             umurDokter : umurDokter,
             alamatDokter : alamatDokter,
             tinggiDokter : tinggiDokter,
             beratDokter : beratDokter,
             notelpDokter : notelpDokter,
-            pasien: [subPasien]
+            pasien : [subPasien]
           }
       }     
       })
-  if(dokterUpdate){
-      let dokterAfterUpdt = await Dokter.findById(id)
-      return dokterAfterUpdt
-  }
-  },
+
+      if(dokterAdd) {
+          let dokterAfterAdd = await Dokter.findById(id)
+          return dokterAfterAdd
+      }
+
+    },
 
     updatePasien : async(id, namaPasien, nicknamePasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
       var subData = {

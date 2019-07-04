@@ -2,9 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DokterSchema = new Schema({
-  // idDokter : {
-  //   type : Schema.Types.ObjectId,
-  // },
+
   dokter : [{
     namaDokter : String,
     emailDokter : String,
