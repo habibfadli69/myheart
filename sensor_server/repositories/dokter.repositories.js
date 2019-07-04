@@ -153,7 +153,7 @@ const dokterRepositories = {
         },
         {
         $push:{
-            "dokter.0.pasien.0.data":{
+            "dokter.0.pasien.$.data":{
                 tanggal : new Date(),
                 temperature : Number(temperature),
                 heartrate: Number(heartrate),
@@ -172,7 +172,7 @@ const dokterRepositories = {
         // socketApp.notifyPasienData(id, dataAfterUpdt)
         return dataAfterUpdt
     }
-    
+
   },
 
     getAllData: async()=>{
