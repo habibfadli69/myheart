@@ -5,33 +5,35 @@ var Dokter = require("../models/dokter.model");
 const socketApp = require('../socket/socket-app');
 
 const dokterRepositories = {
-    createDokter : async(idDokter, namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
+    createDokter : async(idDokter, namaDokter, emailDokter, passwordDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
       var subData = {
         tanggal : new Date(),
-        temperature : 0,
-        heartrate: 0,
-        oxygen : 0,
-        conductance : 0,
-        resistance : 0,
-        conductancevoltage : 0,
-        ecg : 0,
-        emg : 0,
+        temperature : 36,
+        heartrate: 88,
+        oxygen : 96,
+        conductance : 0.5,
+        resistance : 0.5,
+        conductancevoltage : 0.5,
+        ecg : 0.6,
+        emg : 50,
       }
       let subPasien = {
-        namaPasien : null,
-        nicknamePasien : null,
-        birthdayPasien : null,
-        umurPasien : null,
-        alamatPasien : null,
-        tinggiPasien : null,
-        beratPasien : null,
-        notelpPasien : null,
-        kondisi : 0, 
+        namaPasien : "Habib Fadli Akbar",
+        emailPasien : "habibfadli69@gmail.com",
+        passwordPasien : "habib29juni1998",
+        birthdayPasien : "29 Juni 1998",
+        umurPasien : 21,
+        alamatPasien : "Sidoarjo",
+        tinggiPasien : 175,
+        beratPasien : 80,
+        notelpPasien : "082234668569",
+        kondisi : 1, 
         data: [subData]
       }
       let subDokter = {
         namaDokter : namaDokter,
-        nicknameDokter : nicknameDokter,
+        emailDokter : emailDokter,
+        passwordDokter : passwordDokter,
         birthdayDokter : birthdayDokter,
         umurDokter : umurDokter,
         alamatDokter : alamatDokter,
@@ -46,10 +48,10 @@ const dokterRepositories = {
       })
 
       var saveDokter = await newDokter.save()
-
       if(saveDokter) {
         return saveDokter
       }
+      
     },
 
     updateDokter : async(id, namaDokter, nicknameDokter, birthdayDokter, umurDokter, alamatDokter, tinggiDokter, beratDokter, notelpDokter) => {
