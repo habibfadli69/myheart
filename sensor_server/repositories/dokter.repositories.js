@@ -175,10 +175,10 @@ const dokterRepositories = {
 
   },
 
-    getAllData: async()=>{
-    let result = await Perangkat.find()
-     return result
-   }
+  getAllData : async() => {
+      let result = await Dokter.find()
+      return result
+  }
 }
 
 module.exports = dokterRepositories

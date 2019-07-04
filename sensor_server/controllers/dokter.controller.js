@@ -37,36 +37,36 @@ module.exports = {
         res.json(response) 
     },
 
-    updateData: async(req,res) => {
+    updateData : async(req,res) => {
         let response = new Response()
-        try{
+        try {
             response.setData(await dokterRepositories.updateData(req.params.id, req.body.temperature, req.body.heartrate, req.body.oxygen, req.body.conductance, req.body.resistance, req.body.conductancevoltage, req.body.ecg, req.body.emg))
-        }catch(e){
+        } catch(e) {
             response.setStatus(false)
             response.setMessage(e)
         }
         res.json(response) 
     },
-    
-    getAllData: async(req,res)=>{
-        let response = new Response()
-        try{
-            response.setData(await perangkatRepositories.getAllData())
-        }catch(e){
-            response.setStatus(false)
-            response.setMessage(e)
-        }
-        res.json(response) 
-    },
-    createPerangkat: async(req,res)=>{
-        let response = new Response()
-        try{
-            response.setData(await perangkatRepositories.createPasien(req.body.idDokter, req.body.namaPasien,req.body.umurPasien,req.body.alamatPasien,req.body.tinggiPasien,req.body.beratPasien,req.body.nik))
 
-        }catch(e){
+    getAllData : async(req,res) => {
+        let response = new Response()
+        try {
+            response.setData(await dokterRepositories.getAllData())
+        } catch(e) {
             response.setStatus(false)
             response.setMessage(e)
         }
         res.json(response) 
-    }
+    },
+    // createPerangkat: async(req,res)=>{
+    //     let response = new Response()
+    //     try{
+    //         response.setData(await perangkatRepositories.createPasien(req.body.idDokter, req.body.namaPasien,req.body.umurPasien,req.body.alamatPasien,req.body.tinggiPasien,req.body.beratPasien,req.body.nik))
+
+    //     }catch(e){
+    //         response.setStatus(false)
+    //         response.setMessage(e)
+    //     }
+    //     res.json(response) 
+    // }
 }

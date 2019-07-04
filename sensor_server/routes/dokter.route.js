@@ -13,7 +13,7 @@ router.post('/:id/add-pasien', dokter_controller.addPasien);
 router.post('/:id/add-dokter', dokter_controller.addDokter);
 router.post('/:id/update-data', dokter_controller.updateData);
 
-router.get('/getdata',dokter_controller.getAllData);
+router.get('/get-data', dokter_controller.getAllData);
 
 // router.post('/data-today',passport.authenticate('jwt', { session: false}), sapi_controller.getDataToday);
 // router.post('/data-in-time',passport.authenticate('jwt', { session: false}), sapi_controller.getDataInTime);
