@@ -31,26 +31,26 @@ const dokterRepositories = {
         data : [subData]
       }
       let subDokter = {
-        // namaDokter : namaDokter,
-        // emailDokter : emailDokter,
-        // passwordDokter : passwordDokter,
-        // birthdayDokter : birthdayDokter,
-        // umurDokter : umurDokter,
-        // alamatDokter : alamatDokter,
-        // tinggiDokter : tinggiDokter,
-        // beratDokter : beratDokter,
-        // notelpDokter : notelpDokter,
+        namaDokter : namaDokter,
+        emailDokter : emailDokter,
+        passwordDokter : passwordDokter,
+        birthdayDokter : birthdayDokter,
+        umurDokter : umurDokter,
+        alamatDokter : alamatDokter,
+        tinggiDokter : tinggiDokter,
+        beratDokter : beratDokter,
+        notelpDokter : notelpDokter,
         
-        namaDokter : null,
-        emailDokter : null,
-        passwordDokter : null,
-        birthdayDokter : null,
-        umurDokter : null,
-        alamatDokter : null,
-        tinggiDokter : null,
-        beratDokter : null,
-        notelpDokter : null,
-        pasien : [subPasien]
+        // namaDokter : null,
+        // emailDokter : null,
+        // passwordDokter : null,
+        // birthdayDokter : null,
+        // umurDokter : null,
+        // alamatDokter : null,
+        // tinggiDokter : null,
+        // beratDokter : null,
+        // notelpDokter : null,
+        // pasien : [subPasien]
       }
       var newDokter = new Dokter({
         idDokter : idDokter,
