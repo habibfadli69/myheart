@@ -35,7 +35,7 @@ var DokterSchema = new Schema({
         resistance : Number,
         conductancevoltage : Number,
         ecg : Number,
-        emg : Number,
+        emg : Number
       }]
     }] 
   }]

@@ -15,7 +15,7 @@ const dokterRepositories = {
         resistance : 0.5,
         conductancevoltage : 0.5,
         ecg : 0.6,
-        emg : 50,
+        emg : 50
       }
       let subPasien = {
         namaPasien : "Habib Fadli Akbar",
@@ -64,7 +64,7 @@ const dokterRepositories = {
         resistance : 0,
         conductancevoltage : 0,
         ecg : 0,
-        emg : 0,
+        emg : 0
       }
       let subPasien = {
         namaPasien : null,
@@ -79,7 +79,7 @@ const dokterRepositories = {
         data: [subData]
       }
       let dokterUpdate = await Dokter.update({
-          _id: id,
+          _id: id
       },
       {
       $push:{
@@ -112,10 +112,10 @@ const dokterRepositories = {
         resistance : 0,
         conductancevoltage : 0,
         ecg : 0,
-        emg : 0,
+        emg : 0
       }
       let pasienUpdate = await Dokter.update({
-          _id: id,
+          _id: id
       },
       {
       $push:{

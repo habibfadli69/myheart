@@ -14,6 +14,7 @@ module.exports = {
         }
         res.json(response) 
     },
+    
     updateDokter : async(req,res) => {
         let response = new Response()
         res.json(req)
