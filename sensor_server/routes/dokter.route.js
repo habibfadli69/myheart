@@ -11,7 +11,7 @@ const dokter_controller = require('../controllers/dokter.controller');
 router.post('/create-dokter', dokter_controller.createDokter);
 router.post('/:id/add-pasien', dokter_controller.addPasien);
 router.post('/:id/add-dokter', dokter_controller.addDokter);
-router.post('/:id/update-data',dokter_controller.updateData);
+router.post('/:id/update-data', dokter_controller.updateData);
 
 router.get('/getdata',dokter_controller.getAllData);
 

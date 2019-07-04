@@ -106,7 +106,7 @@ const dokterRepositories = {
 
     },
 
-    addPasien : async(id, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
+    addPasien : async(id, namaPasien,  emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
       var subData = {
         tanggal : new Date(),
         temperature : 35,
@@ -149,11 +149,11 @@ const dokterRepositories = {
 
     updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
         let dataUpdate = await Dokter.update({
-            _id:id
+            _id : id
         },
         {
         $push:{
-            "dokter.1.pasien.0.data":{
+            "dokter.0.pasien.0.data":{
                 tanggal : new Date(),
                 temperature : Number(temperature),
                 heartrate: Number(heartrate),
@@ -164,15 +164,16 @@ const dokterRepositories = {
                 ecg : Number(ecg),
                 emg : Number(emg)
             }
-        }
-        
+        }   
     })
+
     if(dataUpdate){
         let dataAfterUpdt = await Dokter.findById(id)
-        socketApp.notifyPasienData(id, dataAfterUpdt)
+        // socketApp.notifyPasienData(id, dataAfterUpdt)
         return dataAfterUpdt
     }
-    },
+    
+  },
 
     getAllData: async()=>{
     let result = await Perangkat.find()
