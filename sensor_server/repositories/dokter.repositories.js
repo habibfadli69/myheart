@@ -94,17 +94,6 @@ const dokterRepositories = {
             tinggiDokter : tinggiDokter,
             beratDokter : beratDokter,
             notelpDokter : notelpDokter,
-
-            // namaDokter : null,
-            // emailDokter : null,
-            // passwordDokter : null,
-            // birthdayDokter : null,
-            // umurDokter : null,
-            // alamatDokter : null,
-            // tinggiDokter : null,
-            // beratDokter : null,
-            // notelpDokter : null,
-
             pasien : [subPasien]
           }
       }     
@@ -117,44 +106,46 @@ const dokterRepositories = {
 
     },
 
-    updatePasien : async(id, namaPasien, nicknamePasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
+    addPasien : async(id, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
       var subData = {
         tanggal : new Date(),
-        temperature : 0,
-        heartrate: 0,
-        oxygen : 0,
-        conductance : 0,
-        resistance : 0,
-        conductancevoltage : 0,
-        ecg : 0,
-        emg : 0
+        temperature : 35,
+        heartrate: 94,
+        oxygen : 98,
+        conductance : 0.7,
+        resistance : 0.7,
+        conductancevoltage : 0.7,
+        ecg : 0.6,
+        emg : 60
       }
-      let pasienUpdate = await Dokter.update({
-          _id: id
+
+      let pasienAdd = await Dokter.update({
+          _id : id
       },
       {
-      $push:{
-          "dokter.1.pasien":{
+      $push : {
+          "dokter.0.pasien" : {
             namaPasien : namaPasien,
-            nicknamePasien : nicknamePasien,
+            emailPasien : emailPasien,
+            passwordPasien : passwordPasien,
             birthdayPasien : birthdayPasien,
             umurPasien : umurPasien,
             alamatPasien : alamatPasien,
             tinggiPasien : tinggiPasien,
             beratPasien : beratPasien,
             notelpPasien : notelpPasien,
-            kondisi: kondisi,
-            data: [subData]
+            kondisi : kondisi,
+            data : [subData]
           }
       }     
       })
-  if(pasienUpdate){
-      let pasienAfterUpdt = await Dokter.findById(id)
-      return pasienAfterUpdt
-  }else{
-    return false
-  }
-  },
+
+      if(pasienAdd){
+          let pasienAfterAdd = await Dokter.findById(id)
+          return pasienAfterAdd
+      }
+
+    },
 
     updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
         let dataUpdate = await Dokter.update({
