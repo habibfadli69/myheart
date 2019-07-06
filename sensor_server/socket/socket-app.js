@@ -18,6 +18,7 @@ const createRefreshResponse = function (refresh) {
 const emitEvent = function (eventName, body) {
     publicSocket.emit(eventName, body);
 };
+
 const notifyPasienData = function(id,data){
     emitEvent('/topic/perangkat/'+id,data)
 }

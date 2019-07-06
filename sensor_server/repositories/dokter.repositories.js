@@ -169,7 +169,7 @@ const dokterRepositories = {
 
     if(dataUpdate){
         let dataAfterUpdt = await Dokter.findById(id)
-        // socketApp.notifyPasienData(id, dataAfterUpdt)
+        socketApp.notifyPasienData(id, dataAfterUpdt)
         return dataAfterUpdt
     }
 
