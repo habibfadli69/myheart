@@ -147,33 +147,54 @@ const dokterRepositories = {
 
     },
 
-    updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
-        let dataUpdate = await Dokter.update({
+    updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
+      let pasienAdd = await Dokter.update({
             _id : id
         },
         {
-        $push:{
-            "dokter.$[].pasien.$[].data":{
-                tanggal : new Date(),
-                temperature : Number(temperature),
-                heartrate: Number(heartrate),
-                oxygen : Number(oxygen),
-                conductance : Number(conductance),
-                resistance : Number(resistance),
-                conductancevoltage : Number(conductancevoltage),
-                ecg : Number(ecg),
-                emg : Number(emg)
+        $set : {
+            "dokter.$[].pasien" : {
+              namaPasien : namaPasien,
+              emailPasien : emailPasien,
+              birthdayPasien : birthdayPasien,
+              umurPasien : umurPasien,
+              alamatPasien : alamatPasien,
+              tinggiPasien : tinggiPasien,
+              beratPasien : beratPasien,
+              notelpPasien : notelpPasien,
             }
-        }   
-    })
+        }     
+      })
 
-    if(dataUpdate){
-        let dataAfterUpdt = await Dokter.findById(id)
-        socketApp.notifyPasienData(id, dataAfterUpdt)
-        return dataAfterUpdt
-    }
+    },
 
-  },
+    updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
+        let dataUpdate = await Dokter.update({
+              _id : id
+          },
+          {
+          $push:{
+              "dokter.$[].pasien.$[].data":{
+                  tanggal : new Date(),
+                  temperature : Number(temperature),
+                  heartrate: Number(heartrate),
+                  oxygen : Number(oxygen),
+                  conductance : Number(conductance),
+                  resistance : Number(resistance),
+                  conductancevoltage : Number(conductancevoltage),
+                  ecg : Number(ecg),
+                  emg : Number(emg)
+              }
+          }   
+      })
+
+      if(dataUpdate){
+          let dataAfterUpdt = await Dokter.findById(id)
+          socketApp.notifyPasienData(id, dataAfterUpdt)
+          return dataAfterUpdt
+      }
+
+    },
 
   getAllData : async() => {
       let result = await Dokter.find()
