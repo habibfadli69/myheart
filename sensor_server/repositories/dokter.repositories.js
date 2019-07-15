@@ -148,17 +148,22 @@ const dokterRepositories = {
     },
 
     updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
-      let pasienAdd = await Dokter.findByIdAndUpdate(id, {
-              namaPasien : namaPasien,
-              emailPasien : emailPasien,
-              birthdayPasien : birthdayPasien,
-              umurPasien : umurPasien,
-              alamatPasien : alamatPasien,
-              tinggiPasien : tinggiPasien,
-              beratPasien : beratPasien,
-              notelpPasien : notelpPasien,
-            }  
-          )
+      let pasienAdd = await Dokter.update({
+          "_id" : "5d1e33b1087fc600183f1f1b",
+          "pasien.id" : id
+      },
+      {
+      $set : {
+            "pasien.namaPasien" : namaPasien,
+            "pasien.emailPasien" : emailPasien,
+            "pasien.birthdayPasien" : birthdayPasien,
+            "pasien.umurPasien" : umurPasien,
+            "pasien.alamatPasien" : alamatPasien,
+            "pasien.tinggiPasien" : tinggiPasien,
+            "pasien.beratPasien" : beratPasien,
+            "pasien.notelpPasien" : notelpPasien,
+      }     
+      })
 
     },
 
