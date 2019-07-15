@@ -150,7 +150,7 @@ const dokterRepositories = {
     updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
       let pasienAdd = await Dokter.update({
           "_id" : "5d1e33b1087fc600183f1f1b",
-          "pasien.id" : id
+          "pasien._id" : id
       },
       {
       $set : {
