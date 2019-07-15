@@ -148,12 +148,7 @@ const dokterRepositories = {
     },
 
     updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
-      let pasienAdd = await Dokter.update({
-            _id : id
-        },
-        {
-        $set : {
-            "dokter.$[].pasien" : {
+      let pasienAdd = await Dokter.findByIdAndUpdate(id, {
               namaPasien : namaPasien,
               emailPasien : emailPasien,
               birthdayPasien : birthdayPasien,
@@ -162,9 +157,8 @@ const dokterRepositories = {
               tinggiPasien : tinggiPasien,
               beratPasien : beratPasien,
               notelpPasien : notelpPasien,
-            }
-        }     
-      })
+            }  
+          )
 
     },
 
