@@ -41,8 +41,9 @@ module.exports = {
         let response = new Response()
         try {
             // response.setData(await dokterRepositories.updatePasien(req.params.id, req.body.namaPasien, req.body.emailPasien, req.body.passwordPasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien))
-            // await dokterRepositories.updatePasien(req.params.id)
-            console.log(req.params.id)
+            let id = req.params.id
+            await dokterRepositories.updatePasien(id, req.body.namaPasien, req.body.emailPasien, req.body.passwordPasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien)
+            
             response = {
                 setStatus: 200,
                 setMessage: 'success'
