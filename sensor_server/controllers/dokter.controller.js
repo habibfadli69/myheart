@@ -51,7 +51,7 @@ module.exports = {
     deletePasien : async(req,res) => {
         let response = new Response()
         try {
-            response.setData(await dokterRepositories.deletePasien(req.params.id))
+            response.setData(await dokterRepositories.deletePasien(req.params.iddokter, req.params.idpasien))
         } catch (e) {
             response.setStatus(false)
             response.setMessage(e)

@@ -180,9 +180,28 @@ const dokterRepositories = {
 
   },
 
-  deletePasien: async(id) => {
-    let result = await Dokter.findByIdAndRemove(id)
-    return result
+  deletePasien: async (iddokter, idpasien) => {
+
+    let pasienDelete = await Dokter.update({
+      "dokter._id" : iddokter
+      // "dokter.pasien._id" : idpasien
+    // "dokter._id" : "5d1e33b1087fc600183f1f1b",
+    // "dokter.pasien._id" : id,
+    },
+    {
+      $pull : {
+        "dokter.$.pasien.$[t]._id" : idpasien,
+      }     
+    },
+  {
+    arrayFilters:[{"t._id":idpasien}]
+  })
+
+    if(pasienUpdate){
+      let pasienAfterUpdt = await Dokter.findById(iddokter)
+      return pasienAfterUpdt
+    }
+
   },
 
   updateData: async (id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
