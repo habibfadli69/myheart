@@ -150,19 +150,20 @@ const dokterRepositories = {
     updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
       console.log("Id" + id)
       await Dokter.update({
-          "_id" : ObjectId("5d1e33b1087fc600183f1f1b"),
-          "dokter.pasien._id" : ObjectId(id)
+          // "_id" : ObjectId("5d1e33b1087fc600183f1f1b"),
+          "_id" : id,
+          // "dokter.pasien._id" : ObjectId(id)
       },
       {
         $set : {
-          "dokter.$.pasien.$.namaPasien" : namaPasien,
-          "dokter.$.pasien.$.emailPasien" : emailPasien,
-          "dokter.$.pasien.$.birthdayPasien" : birthdayPasien,
-          "dokter.$.pasien.$.umurPasien" : umurPasien,
-          "dokter.$.pasien.$.alamatPasien" : alamatPasien,
-          "dokter.$.pasien.$.tinggiPasien" : tinggiPasien,
-          "dokter.$.pasien.$.beratPasien" : beratPasien,
-          "dokter.$.pasien.$.notelpPasien" : notelpPasien,
+          "dokter.0.pasien.1.namaPasien" : namaPasien,
+          "dokter.0.pasien.1.emailPasien" : emailPasien,
+          "dokter.0.pasien.1.birthdayPasien" : birthdayPasien,
+          "dokter.0.pasien.1.umurPasien" : umurPasien,
+          "dokter.0.pasien.1.alamatPasien" : alamatPasien,
+          "dokter.0.pasien.1.tinggiPasien" : tinggiPasien,
+          "dokter.0.pasien.1.beratPasien" : beratPasien,
+          "dokter.0.pasien.1.notelpPasien" : notelpPasien,
         }     
       }).then(res => console.log(res))
       .catch(err => console.log(err))
