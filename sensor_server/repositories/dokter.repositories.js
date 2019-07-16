@@ -148,10 +148,23 @@ const dokterRepositories = {
     },
 
     updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
-      await Dokter.findById("5d1e33b1087fc600183f1f1b", (err, dokter) => {
-        let { pasien } = dokter
-        console.log(pasien)
-      })
+      await Dokter.update({
+          "_id" : "5d1e33b1087fc600183f1f1b",
+          "pasien._id" : id
+      },
+      {
+        $set : {
+          "pasien.$.namaPasien" : namaPasien,
+          "pasien.$.emailPasien" : emailPasien,
+          "pasien.$.birthdayPasien" : birthdayPasien,
+          "pasien.$.umurPasien" : umurPasien,
+          "pasien.$.alamatPasien" : alamatPasien,
+          "pasien.$.tinggiPasien" : tinggiPasien,
+          "pasien.$.beratPasien" : beratPasien,
+          "pasien.$.notelpPasien" : notelpPasien,
+        }     
+      }).then(res => console.log(res))
+      .catch(err => console.log(err))
     },
 
     updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
