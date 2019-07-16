@@ -158,7 +158,7 @@ const dokterRepositories = {
     {
       $set : {
         // dokter.$[].pasien.$[].
-        "dokter.0.pasien.$[].namaPasien" : namaPasien,
+        "pasien.namaPasien" : namaPasien,
         // "dokter.$[].pasien.$[].emailPasien" : emailPasien,
         // "dokter.$[].pasien.$[].passwordPasien" : passwordPasien,
         // "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
@@ -172,7 +172,7 @@ const dokterRepositories = {
     })
 
     if(pasienUpdate){
-      let pasienAfterUpdt = await Dokter.findById(id)
+      let pasienAfterUpdt = await Dokter.findById(iddokter)
       return pasienAfterUpdt
     }
 
