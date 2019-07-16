@@ -151,18 +151,18 @@ const dokterRepositories = {
       console.log("Id" + id)
       await Dokter.update({
           "_id" : ObjectId("5d1e33b1087fc600183f1f1b"),
-          "dokter.pasien._id" : ObjectId(id)
+          "pasien._id" : ObjectId(id)
       },
       {
         $set : {
-          "dokter.$.pasien.$.namaPasien" : namaPasien,
-          "dokter.$.pasien.$.emailPasien" : emailPasien,
-          "dokter.$.pasien.$.birthdayPasien" : birthdayPasien,
-          "dokter.$.pasien.$.umurPasien" : umurPasien,
-          "dokter.$.pasien.$.alamatPasien" : alamatPasien,
-          "dokter.$.pasien.$.tinggiPasien" : tinggiPasien,
-          "dokter.$.pasien.$.beratPasien" : beratPasien,
-          "dokter.$.pasien.$.notelpPasien" : notelpPasien,
+          "pasien.$.namaPasien" : namaPasien,
+          "pasien.$.emailPasien" : emailPasien,
+          "pasien.$.birthdayPasien" : birthdayPasien,
+          "pasien.$.umurPasien" : umurPasien,
+          "pasien.$.alamatPasien" : alamatPasien,
+          "pasien.$.tinggiPasien" : tinggiPasien,
+          "pasien.$.beratPasien" : beratPasien,
+          "pasien.$.notelpPasien" : notelpPasien,
         }     
       }).then(res => console.log(res))
       .catch(err => console.log(err))
