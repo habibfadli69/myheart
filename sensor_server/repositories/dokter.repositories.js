@@ -151,7 +151,7 @@ const dokterRepositories = {
       let pasienUpdate = await Dokter.update({
         // "_id" : ObjectId("5d1e33b1087fc600183f1f1a"),
         // "dokter.$[]._id" : ObjectId("5d1e33b1087fc600183f1f1b"),
-        "dokter.$[].pasien.$[]._id" : id,
+        "dokter.$[].pasien.$[]._id" : ObjectId(id),
       },
       {
         $set : {
