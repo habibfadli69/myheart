@@ -41,7 +41,15 @@ module.exports = {
         let response = new Response()
         
         res.json({
-            "id" : req.params.id
+            "id" : req.params.id, 
+            "nama" : req.body.namaPasien, 
+            "email" : req.body.emailPasien, 
+            "birthday" : req.body.birthdayPasien, 
+            "umur" : req.body.umurPasien, 
+            "alamat" : req.body.alamatPasien, 
+            "tinggi" : req.body.tinggiPasien, 
+            "berat" : req.body.beratPasien, 
+            "notelp" : req.body.notelpPasien
         }) 
         // try {
         //     // response.setData(await dokterRepositories.updatePasien(req.params.id, req.body.namaPasien, req.body.emailPasien, req.body.passwordPasien, req.body.birthdayPasien, req.body.umurPasien, req.body.alamatPasien, req.body.tinggiPasien, req.body.beratPasien, req.body.notelpPasien))
