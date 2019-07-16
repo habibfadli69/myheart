@@ -152,7 +152,7 @@ const dokterRepositories = {
       //  "_id" : "5d1e33b1087fc600183f1f1a",
       //   "dokter.$[]._id" : "5d1e33b1087fc600183f1f1b",
         
-        "dokter.$[].pasien.$[]._id" : id, 
+        "dokter.pasien._id" : id, 
       },
       {
         $set : {
