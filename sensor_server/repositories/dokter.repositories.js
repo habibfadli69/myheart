@@ -155,14 +155,14 @@ const dokterRepositories = {
       },
       {
         $set : {
-          "dokter.$[].pasien.$[].namaPasien" : namaPasien,
-          "dokter.$[].pasien.$[].emailPasien" : emailPasien,
-          "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
-          "dokter.$[].pasien.$[].umurPasien" : umurPasien,
-          "dokter.$[].pasien.$[].alamatPasien" : alamatPasien,
-          "dokter.$[].pasien.$[].tinggiPasien" : tinggiPasien,
-          "dokter.$[].pasien.$[].beratPasien" : beratPasien,
-          "dokter.$[].pasien.$[].notelpPasien" : notelpPasien,
+          "dokter.0.pasien.1.namaPasien" : namaPasien,
+          "dokter.0.pasien.1.emailPasien" : emailPasien,
+          "dokter.0.pasien.1.birthdayPasien" : birthdayPasien,
+          "dokter.0.pasien.1.umurPasien" : umurPasien,
+          "dokter.0.pasien.1.alamatPasien" : alamatPasien,
+          "dokter.0.pasien.1.tinggiPasien" : tinggiPasien,
+          "dokter.0.pasien.1.beratPasien" : beratPasien,
+          "dokter.0.pasien.1.notelpPasien" : notelpPasien,
         }     
       })
     },
