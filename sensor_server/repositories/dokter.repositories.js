@@ -150,15 +150,15 @@ const dokterRepositories = {
   updatePasien: async (iddokter, idpasien, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
 
     let pasienUpdate = await Dokter.update({
-      "dokter._id" : iddokter,
-      "dokter.pasien._id" : idpasien
+      "dokter._id" : iddokter
+      // "dokter.pasien._id" : idpasien
     // "dokter._id" : "5d1e33b1087fc600183f1f1b",
     // "dokter.pasien._id" : id,
     },
     {
       $set : {
         // dokter.$[].pasien.$[].
-        "dokter.$$.pasien.$$.namaPasien" : namaPasien,
+        "dokter.$.pasien.$[t].namaPasien" : namaPasien,
         // "dokter.$[].pasien.$[].emailPasien" : emailPasien,
         // "dokter.$[].pasien.$[].passwordPasien" : passwordPasien,
         // "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
@@ -169,7 +169,10 @@ const dokterRepositories = {
         // "dokter.$[].pasien.$[].notelpPasien" : notelpPasien,
         // "dokter.$[].pasien.$[].kondisi" : kondisi,
       }     
-    })
+    },
+  {
+    arrayFilters:[{"t._id":idpasien}]
+  })
 
     if(pasienUpdate){
       let pasienAfterUpdt = await Dokter.findById(iddokter)
