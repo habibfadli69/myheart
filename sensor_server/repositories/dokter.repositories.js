@@ -149,7 +149,7 @@ const dokterRepositories = {
 
   updatePasien: async (id, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
     let updateDokter = await Dokter.findOne({ id: "5d1e33b1087fc600183f1f1b" }, function (err, dokter) {
-      return dokter;
+      if(!err)return dokter;
       // if (!err) {
       //   await dokter.pasien.findByIdAndUpdate("5d2ca41250426f0018e121bb", {
       //     namaPasien: "Imam"
@@ -158,6 +158,7 @@ const dokterRepositories = {
       //   console.log(err);
       // }
     });
+    return updateDokter;
     // let pasienUpdate = await Dokter.update({
     // "dokter._id" : "5d1e33b1087fc600183f1f1b",
     // "dokter.pasien._id" : "5d2ca41250426f0018e121bb",
