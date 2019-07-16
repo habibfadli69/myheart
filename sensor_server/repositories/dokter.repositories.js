@@ -147,11 +147,13 @@ const dokterRepositories = {
 
   },
 
-  updatePasien: async (id, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
+  updatePasien: async (iddokter, idpasien, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
 
     let pasienUpdate = await Dokter.update({
+      "_id" : iddokter,
+      "pasien._id" : idpasien,
     // "dokter._id" : "5d1e33b1087fc600183f1f1b",
-    "dokter.pasien._id" : id,
+    // "dokter.pasien._id" : id,
     },
     {
       $set : {
