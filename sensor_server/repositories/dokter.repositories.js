@@ -147,29 +147,31 @@ const dokterRepositories = {
 
     },
 
-    updatePasien : async(id, namaPasien,  emailPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien) => {
-      console.log("Id" + id)
-      await Dokter.update({
-          "_id" : id,
-          // "pasien._id" : ObjectId(id)
+    updatePasien : async(id, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
+      let pasienUpdate = await Dokter.update({
+        _id : id
       },
       {
         $set : {
-          "dokter.$[].pasien.$[].namaPasien" : namaPasien,
-          "dokter.$[].pasien.$[].emailPasien" : emailPasien,
-          "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
-          "dokter.$[].pasien.$[].umurPasien" : umurPasien,
-          "dokter.$[].pasien.$[].alamatPasien" : alamatPasien,
-          "dokter.$[].pasien.$[].tinggiPasien" : tinggiPasien,
-          "dokter.$[].pasien.$[].beratPasien" : beratPasien,
-          "dokter.$[].pasien.$[].notelpPasien" : notelpPasien,
+          // dokter.$[].pasien.$[].
+          "namaPasien" : namaPasien,
+          "emailPasien" : emailPasien,
+          "passwordPasien" : passwordPasien,
+          "birthdayPasien" : birthdayPasien,
+          "umurPasien" : umurPasien,
+          "alamatPasien" : alamatPasien,
+          "tinggiPasien" : tinggiPasien,
+          "beratPasien" : beratPasien,
+          "notelpPasien" : notelpPasien,
+          "kondisi" : kondisi,
         }     
       })
 
-      // let updateObj = {$set: {}};
-      // for(var param in req.body) {
-      //   updateObj.$set['competitors.$.'+param] = req.body[param];
-      // }
+      if(pasienUpdate){
+        let pasienAfterUpdt = await Dokter.findById(id)
+        return pasienAfterUpdt
+      }
+
     },
 
     updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
