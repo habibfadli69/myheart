@@ -180,6 +180,11 @@ const dokterRepositories = {
 
   },
 
+  deletePasien: async(id) => {
+    let result = await Dokter.findByIdAndRemove(id)
+    return result
+  },
+
   updateData: async (id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
     let dataUpdate = await Dokter.update({
       _id: id
@@ -403,10 +408,7 @@ module.exports = dokterRepositories
 //     return result
 //   },
 
-//   deletePasien: async(id)=>{
-//     let result = await Pasien.findByIdAndRemove(id)
-//     return result
-//   },
+ 
 
 //   detailPasien: async(id)=>{
 //     let result = await Pasien.findById(id)
