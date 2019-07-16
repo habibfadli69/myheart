@@ -149,13 +149,14 @@ const dokterRepositories = {
 
   updatePasien: async (id, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
     let updateDokter = await Dokter.findOne({ id: "5d1e33b1087fc600183f1f1b" }, function (err, dokter) {
-      if (!err) {
-        await dokter.pasien.findByIdAndUpdate("5d2ca41250426f0018e121bb", {
-          namaPasien: "Imam"
-        });
-      } else {
-        console.log(err);
-      }
+      return dokter;
+      // if (!err) {
+      //   await dokter.pasien.findByIdAndUpdate("5d2ca41250426f0018e121bb", {
+      //     namaPasien: "Imam"
+      //   });
+      // } else {
+      //   console.log(err);
+      // }
     });
     // let pasienUpdate = await Dokter.update({
     // "dokter._id" : "5d1e33b1087fc600183f1f1b",
