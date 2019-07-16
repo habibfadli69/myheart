@@ -151,20 +151,25 @@ const dokterRepositories = {
       console.log("Id" + id)
       await Dokter.update({
           "_id" : ObjectId("5d1e33b1087fc600183f1f1b"),
-          "dokter.pasien.pasien._id" : ObjectId(id)
+          "pasien.pasien._id" : ObjectId(id)
       },
       {
         $set : {
-          "dokter.0.pasien.1.namaPasien" : namaPasien,
-          "dokter.0.pasien.1.emailPasien" : emailPasien,
-          "dokter.0.pasien.1.birthdayPasien" : birthdayPasien,
-          "dokter.0.pasien.1.umurPasien" : umurPasien,
-          "dokter.0.pasien.1.alamatPasien" : alamatPasien,
-          "dokter.0.pasien.1.tinggiPasien" : tinggiPasien,
-          "dokter.0.pasien.1.beratPasien" : beratPasien,
-          "dokter.0.pasien.1.notelpPasien" : notelpPasien,
+          "pasien.$.namaPasien" : namaPasien,
+          "pasien.$.emailPasien" : emailPasien,
+          "pasien.$.birthdayPasien" : birthdayPasien,
+          "pasien.$.umurPasien" : umurPasien,
+          "pasien.$.alamatPasien" : alamatPasien,
+          "pasien.$.tinggiPasien" : tinggiPasien,
+          "pasien.$.beratPasien" : beratPasien,
+          "pasien.$.notelpPasien" : notelpPasien,
         }     
       })
+
+      let updateObj = {$set: {}};
+      for(var param in req.body) {
+        updateObj.$set['competitors.$.'+param] = req.body[param];
+      }
     },
 
     updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
