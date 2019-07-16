@@ -157,17 +157,16 @@ const dokterRepositories = {
     },
     {
       $set : {
-        // dokter.$[].pasien.$[].
         "dokter.$.pasien.$[t].namaPasien" : namaPasien,
-        // "dokter.$[].pasien.$[].emailPasien" : emailPasien,
-        // "dokter.$[].pasien.$[].passwordPasien" : passwordPasien,
-        // "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
-        // "dokter.$[].pasien.$[].umurPasien" : umurPasien,
-        // "dokter.$[].pasien.$[].alamatPasien" : alamatPasien,
-        // "dokter.$[].pasien.$[].tinggiPasien" : tinggiPasien,
-        // "dokter.$[].pasien.$[].beratPasien" : beratPasien,
-        // "dokter.$[].pasien.$[].notelpPasien" : notelpPasien,
-        // "dokter.$[].pasien.$[].kondisi" : kondisi,
+        "dokter.$.pasien.$[t].emailPasien" : emailPasien,
+        "dokter.$.pasien.$[t].passwordPasien" : passwordPasien,
+        "dokter.$.pasien.$[t].birthdayPasien" : birthdayPasien,
+        "dokter.$.pasien.$[t].umurPasien" : umurPasien,
+        "dokter.$.pasien.$[t].alamatPasien" : alamatPasien,
+        "dokter.$.pasien.$[t].tinggiPasien" : tinggiPasien,
+        "dokter.$.pasien.$[t].beratPasien" : beratPasien,
+        "dokter.$.pasien.$[t].notelpPasien" : notelpPasien,
+        "dokter.$.pasien.$[t].kondisi" : kondisi,
       }     
     },
   {
