@@ -190,16 +190,16 @@ const dokterRepositories = {
     },
     {
       $pull : {
-        "dokter.$.pasien.$[t]._id" : idpasien,
+        "dokter.$.pasien" : {"_id":idpasien}
       }     
     },
   {
-    arrayFilters:[{"t._id":idpasien}]
+    // arrayFilters:[{"t._id":idpasien}]
   })
 
-    if(pasienUpdate){
-      let pasienAfterUpdt = await Dokter.findById(iddokter)
-      return pasienAfterUpdt
+    if(pasienDelete){
+      let pasienAfterDelete = await Dokter.findById(iddokter)
+      return pasienAfterDelete
     }
 
   },
