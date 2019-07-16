@@ -149,33 +149,32 @@ const dokterRepositories = {
 
   updatePasien: async (iddokter, idpasien, namaPasien, emailPasien, passwordPasien, birthdayPasien, umurPasien, alamatPasien, tinggiPasien, beratPasien, notelpPasien, kondisi) => {
 
-    // let pasienUpdate = await Dokter.update({
-    //   "dokter._id" : iddokter,
-    //   "dokter.pasien._id" : idpasien,
-    // // "dokter._id" : "5d1e33b1087fc600183f1f1b",
-    // // "dokter.pasien._id" : id,
-    // },
-    // {
-    //   $set : {
-    //     // dokter.$[].pasien.$[].
-    //     "dokter.pasien.namaPasien" : namaPasien,
-    //     // "dokter.$[].pasien.$[].emailPasien" : emailPasien,
-    //     // "dokter.$[].pasien.$[].passwordPasien" : passwordPasien,
-    //     // "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
-    //     // "dokter.$[].pasien.$[].umurPasien" : umurPasien,
-    //     // "dokter.$[].pasien.$[].alamatPasien" : alamatPasien,
-    //     // "dokter.$[].pasien.$[].tinggiPasien" : tinggiPasien,
-    //     // "dokter.$[].pasien.$[].beratPasien" : beratPasien,
-    //     // "dokter.$[].pasien.$[].notelpPasien" : notelpPasien,
-    //     // "dokter.$[].pasien.$[].kondisi" : kondisi,
-    //   }     
-    // })
+    let pasienUpdate = await Dokter.update({
+      "dokter._id" : iddokter,
+      "dokter.pasien._id" : idpasien,
+    // "dokter._id" : "5d1e33b1087fc600183f1f1b",
+    // "dokter.pasien._id" : id,
+    },
+    {
+      $set : {
+        // dokter.$[].pasien.$[].
+        "dokter.$[].pasien.$[].namaPasien" : namaPasien,
+        // "dokter.$[].pasien.$[].emailPasien" : emailPasien,
+        // "dokter.$[].pasien.$[].passwordPasien" : passwordPasien,
+        // "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
+        // "dokter.$[].pasien.$[].umurPasien" : umurPasien,
+        // "dokter.$[].pasien.$[].alamatPasien" : alamatPasien,
+        // "dokter.$[].pasien.$[].tinggiPasien" : tinggiPasien,
+        // "dokter.$[].pasien.$[].beratPasien" : beratPasien,
+        // "dokter.$[].pasien.$[].notelpPasien" : notelpPasien,
+        // "dokter.$[].pasien.$[].kondisi" : kondisi,
+      }     
+    })
 
-    // if(pasienUpdate){
-    //   let pasienAfterUpdt = await Dokter.findById(iddokter)
-    //   return pasienAfterUpdt
-    // }
-    return iddokter+""+idpasien
+    if(pasienUpdate){
+      let pasienAfterUpdt = await Dokter.findById(iddokter)
+      return pasienAfterUpdt
+    }
 
   },
 
