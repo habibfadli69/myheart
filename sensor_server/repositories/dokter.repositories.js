@@ -166,10 +166,10 @@ const dokterRepositories = {
         }     
       })
 
-      let updateObj = {$set: {}};
-      for(var param in req.body) {
-        updateObj.$set['competitors.$.'+param] = req.body[param];
-      }
+      // let updateObj = {$set: {}};
+      // for(var param in req.body) {
+      //   updateObj.$set['competitors.$.'+param] = req.body[param];
+      // }
     },
 
     updateData : async(id, temperature, heartrate, oxygen, conductance, resistance, conductancevoltage, ecg, emg) => {
