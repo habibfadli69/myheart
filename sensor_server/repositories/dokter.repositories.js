@@ -157,7 +157,7 @@ const dokterRepositories = {
       {
         $set : {
           // dokter.$[].pasien.$[].
-          "dokter.$[].pasien.$[].namaPasien" : namaPasien,
+          "dokter.0.pasien.$[].namaPasien" : namaPasien,
           // "dokter.$[].pasien.$[].emailPasien" : emailPasien,
           // "dokter.$[].pasien.$[].passwordPasien" : passwordPasien,
           // "dokter.$[].pasien.$[].birthdayPasien" : birthdayPasien,
